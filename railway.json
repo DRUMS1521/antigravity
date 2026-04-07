@@ -8,6 +8,29 @@
       },
       "deploy": {
         "startCommand": "gunicorn app.main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000"
+      },
+      "variables": {
+        "DATABASE_URL": {
+          "reference": "database_url"
+        },
+        "SECRET_KEY": {
+          "value": "tu-clave-secreta-production-muy-segura"
+        },
+        "FRONTEND_URL": {
+          "value": "https://comfenalco-frontend.up.railway.app"
+        },
+        "ALGORITHM": {
+          "value": "HS256"
+        },
+        "ACCESS_TOKEN_EXPIRE_MINUTES": {
+          "value": "480"
+        },
+        "SMTP_HOST": {
+          "value": "smtp.gmail.com"
+        },
+        "SMTP_PORT": {
+          "value": "587"
+        }
       }
     },
     "frontend": {
