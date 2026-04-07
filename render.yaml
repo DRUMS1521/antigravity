@@ -23,14 +23,12 @@ services:
       - key: SMTP_PORT
         value: 587
 
-  - type: static
+  - type: web
     name: comfenalco-frontend
+    runtime: node
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishPath: dist
-    routes:
-      - path: /api/*
-        destination: https://comfenalco-backend.onrender.com
+    startCommand: npm run preview
     envVars:
       - key: VITE_API_URL
         value: https://comfenalco-backend.onrender.com
