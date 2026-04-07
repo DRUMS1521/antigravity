@@ -12,12 +12,9 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-RUN npm install -g serve@13
-
 COPY --from=builder /app/dist ./dist
-
-RUN printf '#!/bin/sh\nexec serve -s dist -l ${PORT:-3000}\n' > /start.sh && chmod +x /start.sh
+COPY server.js .
 
 EXPOSE 3000
 
-CMD ["/start.sh"]
+CMD ["node", "server.js"]
