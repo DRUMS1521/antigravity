@@ -5,6 +5,7 @@
     "dockerfilePath": "Dockerfile"
   },
   "deploy": {
+    "startCommand": "serve -s dist -l ${PORT:-3000}",
     "restartPolicyType": "ON_FAILURE"
   }
 }
