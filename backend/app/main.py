@@ -5,8 +5,11 @@ from app.core.config import settings
 from app.core.database import Base, engine
 from app.routes import auth, solicitudes, stats, empresas, users
 
-# Crear tablas
-Base.metadata.create_all(bind=engine)
+# Crear tablas (ignorar si ya existen)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception:
+    pass
 
 # Migraciones ligeras: agregar columnas nuevas si no existen
 _migrations = [
