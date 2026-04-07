@@ -43,7 +43,7 @@ class UserResponse(BaseModel):
     cargo: Optional[str] = None
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 
 # Schemas para gestión de usuarios (super admin)
