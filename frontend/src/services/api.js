@@ -8,7 +8,7 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-  const stored = localStorage.getItem('auth')
+  const stored = localStorage.getItem('auth') || sessionStorage.getItem('auth')
   if (stored) {
     const { access_token } = JSON.parse(stored)
     if (access_token) {

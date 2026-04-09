@@ -7,12 +7,13 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const stored = localStorage.getItem('auth')
+    const stored = localStorage.getItem('auth') || sessionStorage.getItem('auth')
     if (stored) {
       try {
         setUser(JSON.parse(stored))
       } catch {
         localStorage.removeItem('auth')
+        sessionStorage.removeItem('auth')
       }
     }
     setLoading(false)
@@ -20,12 +21,15 @@ export function AuthProvider({ children }) {
 
   const login = (userData) => {
     setUser(userData)
-    localStorage.setItem('auth', JSON.stringify(userData))
+    const serialized = JSON.stringify(userData)
+    try { localStorage.setItem('auth', serialized) } catch {}
+    try { sessionStorage.setItem('auth', serialized) } catch {}
   }
 
   const logout = () => {
     setUser(null)
     localStorage.removeItem('auth')
+    sessionStorage.removeItem('auth')
   }
 
   return (
