@@ -283,6 +283,9 @@ export default function LoginPage() {
                     onChange={e => setUsername(e.target.value)}
                     placeholder="tu.usuario"
                     autoComplete="username"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck="false"
                     className="input-glow w-full bg-gray-50 border border-gray-200 rounded-xl
                       pl-11 pr-4 py-3.5 text-sm text-gray-900 placeholder-gray-300
                       focus:outline-none focus:border-green-400 focus:bg-white
@@ -309,6 +312,9 @@ export default function LoginPage() {
                     onChange={e => setPassword(e.target.value)}
                     placeholder="••••••••"
                     autoComplete="current-password"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck="false"
                     className="input-glow w-full bg-gray-50 border border-gray-200 rounded-xl
                       pl-11 pr-12 py-3.5 text-sm text-gray-900 placeholder-gray-300
                       focus:outline-none focus:border-green-400 focus:bg-white
