@@ -17,6 +17,10 @@ export function AuthProvider({ children }) {
       }
     }
     setLoading(false)
+
+    const handleLogout = () => setUser(null)
+    window.addEventListener('auth:logout', handleLogout)
+    return () => window.removeEventListener('auth:logout', handleLogout)
   }, [])
 
   const login = (userData) => {

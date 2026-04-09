@@ -23,7 +23,8 @@ api.interceptors.response.use(
   (err) => {
     if (err.response?.status === 401) {
       localStorage.removeItem('auth')
-      window.location.href = '/login'
+      sessionStorage.removeItem('auth')
+      window.dispatchEvent(new Event('auth:logout'))
     }
     return Promise.reject(err)
   }
