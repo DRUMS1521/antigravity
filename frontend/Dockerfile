@@ -7,9 +7,7 @@ RUN npm install
 
 COPY . .
 
-ARG VITE_API_URL=https://comfenalco-backend-production.up.railway.app
-ENV VITE_API_URL=$VITE_API_URL
-RUN npm run build
+RUN VITE_API_URL=https://comfenalco-backend-production.up.railway.app npm run build
 
 FROM node:20-alpine
 
